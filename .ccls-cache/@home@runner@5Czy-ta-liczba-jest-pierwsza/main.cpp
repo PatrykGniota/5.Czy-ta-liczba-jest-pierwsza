@@ -4,34 +4,20 @@ using namespace std;
 int main() {
 
   int num = 0;
-  int d = 5;
-  bool isPrime = true;
-
+  int d = 2;
+  
   cout << "num = ";
   cin >> num;
+  cout << num << " = ";
 
-  isPrime = (num > 1);
-  if(num > 2 and num % 2 == 0){
-    isPrime = false;
-  }
-  if(num > 3 and num % 3 == 0){
-    isPrime = false;
-  }
-  while(isPrime and (d*d) <= num){
+  while(d * d <= num){
     if(num % d == 0){
-      isPrime = false;
-    }
-    else if(num %(d + 2) == 0){
-      isPrime = false;
+      cout << d << " * ";
+      num = num / d;
     }
     else{
-      d = d + 6;
+      d++;
     }
   }
-  if(isPrime){
-    cout << "Prime\n";
-  }
-  else{
-    cout << "Not Prime\n";
-  }
+  cout << num;
 }
