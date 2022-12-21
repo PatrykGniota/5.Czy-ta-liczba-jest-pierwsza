@@ -1,32 +1,37 @@
 #include <iostream>
 using namespace std;
 
-bool isPrime(int n){
-  bool isPrime =true;
-  int i = 3;
-  if(n > 2){
-    if(n % 2 == 0 ){
+int main() {
+
+  int num = 0;
+  int d = 5;
+  bool isPrime = true;
+
+  cout << "num = ";
+  cin >> num;
+
+  isPrime = (num > 1);
+  if(num > 2 and num % 2 == 0){
+    isPrime = false;
+  }
+  if(num > 3 and num % 3 == 0){
+    isPrime = false;
+  }
+  while(isPrime and (d*d) <= num){
+    if(num % d == 0){
+      isPrime = false;
+    }
+    else if(num %(d + 2) == 0){
       isPrime = false;
     }
     else{
-      while(i * n <= n * n){
-        if(n / i == 0){
-          isPrime = false;
-        }
-        i++;
-      }
-    }    
+      d = d + 6;
+    }
   }
-  return isPrime;
-}
-
-int main() {
-  int x = 2137;
-
-  if(isPrime(x)){
-    cout << x << " Prime\n";
+  if(isPrime){
+    cout << "Prime\n";
   }
   else{
-    cout << x << " Not Prime\n";
+    cout << "Not Prime\n";
   }
 }
